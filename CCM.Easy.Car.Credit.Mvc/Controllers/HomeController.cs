@@ -16,7 +16,6 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
 		public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
-
 			return View();
 		}
 
