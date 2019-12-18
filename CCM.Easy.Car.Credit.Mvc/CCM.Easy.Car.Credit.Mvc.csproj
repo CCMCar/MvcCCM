@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomepageController.cs" />
     <Compile Include="Controllers\HttpClientHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +242,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\app rq.png" />
+    <Content Include="image\app.png" />
+    <Content Include="image\dk.png" />
+    <Content Include="image\huasuan.png" />
+    <Content Include="image\liucheng.png" />
+    <Content Include="image\logo.png" />
+    <Content Include="image\Phone.png" />
+    <Content Include="image\police.png" />
+    <Content Include="image\shangqi.png" />
+    <Content Include="image\sj.png" />
+    <Content Include="image\touming.png" />
+    <Content Include="image\wx.png" />
+    <Content Include="image\zixun.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Clayui\layui\font\iconfont.eot" />
@@ -272,6 +286,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Homepage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
