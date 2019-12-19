@@ -104,7 +104,7 @@
                     <ul class="sui-nav login1" style="position: inherit;">
 
                         <!-- 没有登录的 -->
-                        <li><a class="login-chang" style="margin-left: 15px; padding:7px 15px 11px;" @*href="https://www.haocheedai.com/pc/login.html" rel="nofollow"*@>请登录</a></li>
+                        <li><a class="login-chang" style="margin-left: 15px; padding:7px 15px 11px;" @*href="https://www.haocheedai.com/pc/login.html" rel="nofollow"*@>@(Session["UserEmail"].ToString()==""?"请登录":@Session["UserEmail"].ToString())</a></li>
                         <li><span class="hr"></span></li>
                         <li><a class="login-chang1" @*href="https://www.haocheedai.com/pc/register.html"*@ style="color: #ff9500; padding:7px 15px 11px;" @*rel="nofollow"*@>免费注册</a></li>
 

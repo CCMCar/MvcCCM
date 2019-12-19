@@ -13,7 +13,9 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
 {
     public class UserManagerController : Controller
     {
+        
         HttpClientHelper client = new HttpClientHelper("https://localhost:44386/api/UserManager/");
+        
         // GET: UserManager
         /// <summary>
         /// 陈彤彤和顾烯墰注册页面 12.18
@@ -35,9 +37,9 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
             }
             return View();
         }
-        #region 
-
-        #endregion
+        #region 普通话登录、邮箱登陆
+        
+        
         /// <summary>
         ///  陈彤彤和顾烯墰登录页面 12.18（普通登录）
         /// </summary>
@@ -68,8 +70,14 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
         /// <returns></returns>
         public ActionResult EmailLogin()
         {
+            Session["UserEmail"] = "";
             return View();
         }
+        /// <summary>
+        ///  陈彤彤和顾烯墰登录页面 12.18（邮箱验证登录）
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult EmailLogin(UserInfo model)
         {
@@ -77,10 +85,12 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
         }
         public int EmailDenglu(string yzm)
         {
+            
             if (Session["yzm"]!=null)
             {
-                if (yzm== Session["yzm"].ToString())
+                if (yzm.ToUpper()== Session["yzm"].ToString())
                 {
+
                     return 1;
                 }
                 else
@@ -93,10 +103,39 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
                 return 0;
             }
         }
+        /// <summary>
+        ///  陈彤彤和顾烯墰登录页面 12.18（邮箱验证登录）
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public int Email(UserInfo model)
         {
             string json = client.Get("GetUserLoginRe?json="+JsonConvert.SerializeObject(model));
+            Session["UserEmail"] = model.UserEmail;
+            return 1;
+        }
+        /// <summary>
+        /// 验证邮箱
+        /// </summary>
+        /// <param name="txt"></param>
+        /// <returns></returns>
+        public int MailEmail(string txt)
+        {
             
+            UserInfo info = new UserInfo()
+            {
+                UserEmail = txt
+            };
+            string json = client.Put("PutUserLoginRe", JsonConvert.SerializeObject(info));
+            if (json!="")
+            {
+                Session["UserEmail"] = info.UserEmail;
+                return  Mail1(txt);
+            }
+            else
+            {
+                return 0;
+            }
         }
         /// <summary>
         /// 陈彤彤和顾烯墰登录页面 12.18（邮箱验证登录）
@@ -158,5 +197,6 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
             }
             return str;
         }
+        #endregion
     }
 }

@@ -4,9 +4,6 @@
 }
 
 <h2>EmailLogin</h2>
-
-@using (Html.BeginForm("EmailLogin", "UserManager"))
-{
     <table class="table table-bordered">
         <tr>
             <td>用户邮箱</td>
@@ -22,15 +19,15 @@
         </tr>
         <tr>
             <td></td>
-            <td><input id="Submit1" type="submit" value="登录" onclick="Denglu()" /></td>
+            <td><input id="bunt1" type="button" value="登录" onclick="Denglu()" /></td>
         </tr>
     </table>
-}
+
 <script>
     function YanZheng() {
 
         $.ajax({
-            url: "https://localhost:44341/UserManager/Mail1?Txt=" + $("#txtEmal").val(),
+            url: "https://localhost:44341/UserManager/MailEmail?Txt=" + $("#txtEmal").val(),
             success: function (data) {
                 if (data > 0) {
                     alert("验证码发送成功");
@@ -45,13 +42,17 @@
     function Denglu()
     {
          $.ajax({
-            url: "https://localhost:44341/UserManager/EmailDenglu?userEmail="+$("#txtEmal").val()+"+&userPwd="+$("#")+"",
+            url: "https://localhost:44341/UserManager/EmailDenglu?yzm="+$("#txtYzm").val(),
             success: function (data) {
-                if (data > 0) {
-                    alert("验证码发送成功");
+                if (data > 0)
+                {
+                   
+                    alert("登录成功");
+                    location.assign('../homepage/index');
+                    
                 }
                 else {
-                    alert("邮箱不存在");
+                    alert("登录失败，验证码输入不对");
 
                 }
             }
