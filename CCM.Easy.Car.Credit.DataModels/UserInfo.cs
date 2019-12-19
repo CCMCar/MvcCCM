@@ -20,6 +20,7 @@ namespace CCM.Easy.Car.Credit.DataModels
         /// <summary>
         /// 用户邮箱
         /// </summary>
+        [EmailAddress]
         public string UserEmail    { get; set; }
         /// <summary>
         /// 用户密码
