@@ -128,7 +128,7 @@
     </div>
     <div class="floor-wrapper head">
         <div class="floor">
-            <a class="logo" href="https://www.haocheedai.com">
+            <a class="logo" @*href="https://www.haocheedai.com"*@>
                 <img src="~/image/logo.png" alt="好车E贷" />
                 <span style="color: #7f7f7f;font-size: 13px;">上&nbsp;汽&nbsp;自&nbsp;营&nbsp;车&nbsp;贷&nbsp;平&nbsp;台</span>
             </a>
@@ -495,7 +495,7 @@
             </div>
             <div class="search">
                 <form @*action="https://www.haocheedai.com/pc/p0f0b0s0y1.html"*@ type="get" onkeydown="if(event.keyCode==13){return false;}">
-                    <input id="autocomplete-ajax" class="search-box" type="text" name="searchName" placeholder="查找贷款品牌或车型" autocomplete="off">
+                    <input id="autocomplete-ajax" class="search-box" type="text" name="searchName" style="height:50px" placeholder="查找贷款品牌或车型" autocomplete="off">
                     <input class="search-btn" type="submit" value="">
                 </form>
                 @*<div class="search-data min hidden topSearchData">
@@ -656,10 +656,6 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
-        </footer>
     </div>
 
 
