@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "UserLogin";
+}
+
+<h2>UserLogin</h2>
+
+@using (Html.BeginForm("UserLogin", "UserManager"))
+{
+<table class="table table-bordered">
+    <tr>
+        <td>用户邮箱</td>
+        <td>
+            <input id="txtEmal" type="text" name="UserEmail" />
+        </td>
+    </tr>
+    <tr>
+        <td>用户密码</td>
+        <td><input id="Text1" type="password" name="UserPwd" /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input id="Submit1" type="submit" value="登录" /></td>
+    </tr>
+</table>
+}
