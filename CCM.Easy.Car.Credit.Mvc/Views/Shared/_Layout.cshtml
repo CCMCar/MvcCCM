@@ -35,11 +35,13 @@
         })();
     </script>
 
+    <link href="~/image/Iocn.png" mce_href="~/image/Iocn.png" rel="bookmark" type="image/x-icon">
+    <link href="~/image/Iocn.png" mce_href="~/image/Iocn.png" rel="icon" type="image/x-icon">
+    <link href="~/image/Iocn.png" mce_href="~/image/Iocn.png" rel="shortcut icon" type="image/x-icon">
 
-
-    <link href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" mce_href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" rel="bookmark" type="image/x-icon">
-    <link href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" mce_href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" rel="icon" type="image/x-icon">
-    <link href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" mce_href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    @*<link href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" mce_href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" rel="bookmark" type="image/x-icon">
+        <link href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" mce_href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" rel="icon" type="image/x-icon">
+        <link href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" mce_href="https://www.haocheedai.com/resources/pc-sui2/images/public/favicon.ico" rel="shortcut icon" type="image/x-icon">*@
 
 
     <link rel="stylesheet" type="text/css" href="https://www.haocheedai.com/resources/pc-sui2/min-css/haocheedai-core.min.css?v=20191217">
@@ -104,9 +106,9 @@
                     <ul class="sui-nav login1" style="position: inherit;">
 
                         <!-- 没有登录的 -->
-                        <li><a class="login-chang" style="margin-left: 15px; padding:7px 15px 11px;" @*href="https://www.haocheedai.com/pc/login.html" rel="nofollow"*@>@(Session["UserEmail"].ToString()==""?"请登录":@Session["UserEmail"].ToString())</a></li>
+                        <li><a class="login-chang" style="margin-left: 15px; padding:7px 15px 11px;" href="/UserManager/UserLogin" @*href="https://www.haocheedai.com/pc/login.html"*@ rel="nofollow">@(Session["UserEmail"]==null?"请登录":@Session["UserEmail"].ToString())</a></li>
                         <li><span class="hr"></span></li>
-                        <li><a class="login-chang1" @*href="https://www.haocheedai.com/pc/register.html"*@ style="color: #ff9500; padding:7px 15px 11px;" @*rel="nofollow"*@>免费注册</a></li>
+                        <li><a class="login-chang1" href="/UserManager/Register" @*href="https://www.haocheedai.com/pc/register.html"*@ style="color: #ff9500; padding:7px 15px 11px;" rel="nofollow">免费注册</a></li>
 
                         <div class="clear"></div>
                     </ul>
@@ -129,8 +131,8 @@
     <div class="floor-wrapper head">
         <div class="floor">
             <a class="logo" @*href="https://www.haocheedai.com"*@>
-                <img src="~/image/logo.png" alt="好车E贷" />
-                <span style="color: #7f7f7f;font-size: 13px;">上&nbsp;汽&nbsp;自&nbsp;营&nbsp;车&nbsp;贷&nbsp;平&nbsp;台</span>
+                <img src="~/image/CCMlogo.png" alt="好车E贷" style="margin-top:40px"/>
+                @*<span style="color: #7f7f7f;font-size: 13px;">上&nbsp;汽&nbsp;自&nbsp;营&nbsp;车&3bsp;贷&nbsp;平&nbsp;台</span>*@
             </a>
             <div class="city">
                 <h3>购车城市</h3>
@@ -138,7 +140,7 @@
                     <i class="icon-address"></i>
                     <span class="city-txt" id="defaultCityName">
 
-                        信阳市
+                        上海市
                         <input type="hidden" value="980291" id="defaultCityCode">
 
                     </span>
@@ -648,7 +650,7 @@
                             <i class="sui-icon icon-touch-user3-sign" style="color: #00a1fe;"></i>
                         </li>
                     </ul>*@
-                <a @*href="https://www.haocheedai.com/pc/authentication/userCarProgram.html"*@ class="loan2">我的贷款</a>
+                <a @*href="https://www.haocheedai.com/pc/authentication/userCarProgram.html"*@ class="loan2" style="line-height: 80px">我的贷款</a>
             </div>
         </div>
     </div>

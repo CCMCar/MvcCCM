@@ -56,11 +56,12 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
         [HttpPost]
         public ActionResult UserLogin(UserInfo model)
         {
+            Session["UserEmail"] = model.UserEmail;
             string json = client.Get("GetUserLogin?json=" + JsonConvert.SerializeObject(model));
             int n = Convert.ToInt32(json);
             if (n>0)
             {
-                Response.Write("<script>alert('登录成功！')</script>");
+                Response.Write("<script>alert('登录成功！');location.href='/Homepage/Index'</script>");
             }
             return View();
         }

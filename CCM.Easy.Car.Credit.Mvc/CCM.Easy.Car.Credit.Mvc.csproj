@@ -260,8 +260,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="image\app rq.png" />
     <Content Include="image\app.png" />
+    <Content Include="image\CCMlogo.png" />
     <Content Include="image\dk.png" />
     <Content Include="image\huasuan.png" />
+    <Content Include="image\Iocn.png" />
     <Content Include="image\liucheng.png" />
     <Content Include="image\logo.png" />
     <Content Include="image\Phone.png" />
