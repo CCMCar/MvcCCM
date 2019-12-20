@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Chaxi";
+}
+@using System.Data
+@model DataTable
+
+
+<div class="sui-steps-round cont-steps cont-steps4">
+    <div class="finished over">
+        <div class="wrap">
+            <div class="round round1"></div>
+            <div class="bar"></div>
+        </div>
+        <label>贷款方案</label>
+    </div>
+    <div class="current">
+        <div class="wrap">
+            <div class="round round2"></div>
+            <div class="bar"></div>
+        </div>
+        <label>个人信息</label>
+    </div>
+    <div class="todo">
+        <div class="wrap">
+            <div class="round round3"></div>
+            <div class="bar"></div>
+        </div>
+        <label>额度评估/审批</label>
+    </div>
+    <div class="todo last">
+        <div class="wrap">
+            <div class="round round4"></div>
+        </div>
+        <label>创建成功</label>
+    </div>
+</div>
+<table class="table-bordered table">
+    @foreach (DataRow item in Model.Rows)
+    {
+        <tr>
+            <td><input id="Text1" type="text" value="@item["UserTrueName"]" /></td>
+        </tr>
+        <tr>
+            <td> <input id="Text1" type="text" value="@item["UserNumber"]" /></td>
+        </tr>
+        <tr>
+            <td><input id="Text1" type="text" value="@item["UserTelPhone"]" /></td>
+        </tr>
+    }
+</table>
+<input id="Button1" type="button" value="提交" onclick="location.href='/Clickapplication/Chayong'"  class="btn-danger btn"/>
