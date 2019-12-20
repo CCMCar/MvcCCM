@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Chayong";
+}
+@using CCM.Easy.Car.Credit.DataModels
+@model UserInfo
+
+
+
+<div class="sui-steps-round cont-steps cont-steps4">
+    <div class="finished over">
+        <div class="wrap">
+            <div class="round round1"></div>
+            <div class="bar"></div>
+        </div>
+        <label>贷款方案</label>
+    </div>
+    <div class="over">
+        <div class="wrap">
+            <div class="round round2"></div>
+            <div class="bar"></div>
+        </div>
+        <label>个人信息</label>
+    </div>
+    <div class="current">
+        <div class="wrap">
+            <div class="round round3"></div>
+            <div class="bar"></div>
+        </div>
+        <label>额度评估/审批</label>
+    </div>
+    <div class="todo last">
+        <div class="wrap">
+            <div class="round round4"></div>
+        </div>
+        <label>创建成功</label>
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+<table class="table-bordered table">
+    <tr>
+        <td>用户真实姓名</td>
+        <td><input id="Text1" type="text"  name="UserTrueName"/></td>
+    </tr>
+    <tr>
+        <td>用户身份证号</td>
+       
+        <td><input id="Text1" type="text" name="UserNumber" /></td>
+    </tr>
+    <tr>
+        <td>用户手机号</td>
+      
+        <td><input id="Text1" type="text" name="UserTelPhone" /></td>
+    </tr>
+    <tr>
+        <td>用户学历</td>
+     
+        <td><input id="Text1" type="text" name="UserEducation" /></td>
+    </tr>
+    <tr>
+        <td>用户工作信息</td>
+     
+        <td><input id="Text1" type="text" name="UserJobInfo" /></td>
+    </tr>
+    <tr>
+        <td>用户职位</td>
+  
+        <td><input id="Text1" type="text" name="UserPosition" /></td>
+    </tr>
+    <tr>
+        <td>用户信用</td>
+    
+        <td><input id="Text1" type="text" name="UserCredit" /></td>
+    </tr>
+    <tr>
+        <td>用户平均收入</td>
+        
+        <td><input id="Text1" type="text" name="UserIncome" /></td>
+    </tr>
+    <tr>
+        <td>银行卡号</td>
+       
+        <td><input id="Text1" type="text" name="UserBandCard" /></td>
+    </tr>
+</table>
+<input id="Submit1" type="submit" value="提交" class="btn-danger btn"/>
+}
