@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using System.Data;
+@model DataTable
+@DateTime.Now
+
+@using(@Html.BeginForm("","",FormMethod.Get,new { enctype = "multipart/form-data" }))
+{
+<table class="table-bordered table">
+    <div class="index-box">
+        <div class="index-nav">
+            <a href="https://www.haocheedai.com/pc/authentication/userCarProgram.html">我的购车方案</a>
+            <a href="https://www.haocheedai.com/pc/authentication/loanProgress.html">贷款办理进度</a>
+            <a href="https://www.haocheedai.com/personalCenter/authentication/repayCheckList.html">还款查询</a>
+            <a class="active" href="javascript:void(0);">我的收藏</a>
+
+        </div>
+        <h3 class="index-h3">
+            <i class="icon-keep"></i>我的收藏
+        </h3>
+        <div class="floor-box box-keep">
+            <p class="t-c cRed F18 errorText hidden">我的收藏数据为空</p>
+            <div id="uc-collectionList">
+                <dl class="">
+                    <dt>
+                        <span class="updateTime">2019-12-17</span>
+                        <span class="name"></span>
+                        <a href="javascript:void(0);" class="cancelCollection"><i class="sui-icon icon-tb-delete"></i></a>
+                    </dt>
+                    <dd class="userCollectionBlock">
+                        <img class="modelImg" src="//static.haocheedai.com/data/media/brand/18/239/239_210140.jpg" alt="">
+                        <div class="time-body">
+                            <ul class="clearfix detail">
+                                <li class="w255">
+                                    <h6 class="brandName-seriesName">布加迪 威航(进口)</h6>
+                                    <p class="fw-bold modelName">2010款 威航(进口) 16.4 GRAND SPORT 百年纪念版</p>
+                                    <div class="product">参考报价 <span class="carMoney">3800</span>万</div>
+                                </li>
+                                <li class="w155">
+                                    <h6>贷款方案</h6>
+                                    <p class="fw-bold activityName">3年期等额</p>
+                                    <div class="product">购车地:<span class="cityName">上海市</span></div>
+                                </li>
+                                <li class="w180">
+                                    <h6>参考首付 (<span class="firstPayScale">50%</span>)</h6>
+                                    <p>¥&nbsp;<span class="money-red firstPayMoney">1,900.00</span>万</p>
+                                </li>
+                                <li class="w200">
+                                    <h6>参考月供</h6>
+                                    <p class="clr-999"><span class="clr-333">¥</span>&nbsp;<span class="money-red monthPay">648,452.54</span>*<span class="loanTimes">36</span>期</p>
+                                </li>
+                                <li class="btns">
+                                    <a href="https://www.haocheedai.com/pc/authentication/toApplicationCarProgram/371537.html" class="registerProgram">立即申请</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            <div class="pagination keep-pagination"><div class="sui-pagination pagination-large"><ul><li class="prev disabled"><a href="#" data="0">«上一页</a></li><li class="active"><a href="#" data="1">1</a></li><li class="next disabled"><a href="#" data="2">下一页»</a></li></ul></div></div>
+        </div>
+    </div>
+    @foreach (DataRow item in (Model as DataTable).Rows)
+    {
+        <tr>
+            <td><img src="@item["CarImg"]" alt="" style="width:50px;height:30px;" /></td>
+            <td>@item["CarState"]</td>
+            <td>@item["CarName"]</td>
+            <td>@item["CarPrice"]</td>
+            <td>@item["CityName"]</td>
+
+        </tr>
+    }
+</table>
+}
+
+
