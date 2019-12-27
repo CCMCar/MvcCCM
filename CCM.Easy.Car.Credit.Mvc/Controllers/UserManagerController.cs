@@ -46,7 +46,64 @@ namespace CCM.Easy.Car.Credit.Mvc.Controllers
         /// <returns></returns>
         public ActionResult UserLogin()
         {
-            return View();
+            UserInfo users = new UserInfo();
+
+            //判断当前cookie是否存在用户名和密码，若存在则传给前台，直接赋值
+
+            HttpCookie cookie = System.Web.HttpContext.Current.Request.Cookies.Get("COOKIE_NAME_FOR_USER");
+            users.UserEmail = (cookie == null ? "" : cookie["COOKIE_USER_NAME"].ToString().Trim());
+            users.UserPwd = (cookie == null ? "" : cookie["COOKIE_USER_PASS"].ToString().Trim());
+            if (cookie != null)
+            {
+                ViewData["checked"] = "checked";
+            }
+            else
+            {
+                ViewData["checked"] = "";
+            }
+            return View(users);
+        }
+        public ActionResult Check()
+        {
+            List<UserInfo> list = new List<UserInfo>();
+            string messge;
+            var remeber = Request.Form["Isre"];
+            string LoginName = Request.Form["name"];
+            string Password = Request.Form["password"];
+            var user = (from u1 in list
+                        where u1.UserEmail == LoginName && u1.UserPwd == Password
+                        select u1).FirstOrDefault();
+            if (remeber == "true")
+            {
+
+                //如果选中记住密码则把用户名和密码存入cookie否则存为空
+
+                HttpCookie cookie = new HttpCookie("COOKIE_NAME_FOR_USER");
+
+                cookie.Expires = DateTime.Now.AddYears(1);
+                cookie["COOKIE_USER_NAME"] = LoginName;
+                cookie["COOKIE_USER_PASS"] = Password;
+                System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                HttpCookie cookie = new HttpCookie("COOKIE_NAME_FOR_USER");
+                cookie.Expires = DateTime.Now.AddYears(-1);
+                Request.Cookies.Add(cookie);
+                cookie["COOKIE_USER_NAME"] = null;
+                cookie["COOKIE_USER_PASS"] = null;
+                System.Web.HttpContext.Current.Response.Cookies.Add(cookie);
+            }
+            if (user == null)
+            {
+                messge = "error";
+            }
+            else
+            {
+                messge = "ok";
+                HttpContext.Session["Name"] = LoginName;
+            }
+            return Content(messge);
         }
         /// <summary>
         /// 陈彤彤和顾烯墰登录页面 12.18（提示登录成功）（普通登录）
