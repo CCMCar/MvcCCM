@@ -39,12 +39,15 @@
     @foreach (DataRow item in Model.Rows)
     {
         <tr>
+            <td>真实姓名：</td>
             <td><input id="Text1" type="text" value="@item["UserTrueName"]" /></td>
         </tr>
         <tr>
+            <td>身份证号：</td>
             <td> <input id="Text1" type="text" value="@item["UserNumber"]" /></td>
         </tr>
         <tr>
+            <td>手机号：</td>
             <td><input id="Text1" type="text" value="@item["UserTelPhone"]" /></td>
         </tr>
     }

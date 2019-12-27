@@ -43,23 +43,22 @@
                 @foreach (DataRow item in (ViewBag.shu as DataTable).Rows)
                 {
                     <tr>
-                        <td>@item["CarImg"]</td>
+                        <td rowspan="3">@item["CarImg"]</td>
                         <td>@item["CarName"]</td>
                         <td>贷款方案</td>
                         <td>参考首付(50%)</td>
                         <td>参考月供</td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td>@item["BrandName"]</td>
                         <td>5年低利率</td>
-                        <td></td>
+                        <td rowspan="2">￥ 4.94万</td>
+                        <td rowspan="2">￥ 954.81*60期</td>
                     </tr>
                     <tr>
-                        <td></td>
                         <td>参考报价 @item["CarPrice"]</td>
-                        <td>@item["CityName"]</td>
-                        <td></td>
+                        <td>购买地：@item["CityName"]</td>
+                        
                     </tr>
                 }
 
@@ -77,15 +76,19 @@
                 @foreach (DataRow item in (ViewBag.gong as DataTable).Rows)
                 {
                     <tr>
-                        <td>@item["ShopName"] </td>
-                        <td>评分4.5</td>
-                        <td>参考报价 @item["CarPrice"]</td>
+                        <td>
+                            @item["ShopName"]<p>@item["ShopAddress"]</p>
+                            
+                        </td>
+                        <td>
+                            评分4.5 <p>1280人预约</p>
+                            
+                        </td>
+                        <td>
+                            参考报价： @item["CarPrice"]
+                        </td>
                     </tr>
-                    <tr>
-                        <td>@item["ShopAddress"] </td>
-                        <td>1280人预约</td>
-                        <td>参考报价 @item["CarPrice"]</td>
-                    </tr>
+                    
                 }
             </table>
 
