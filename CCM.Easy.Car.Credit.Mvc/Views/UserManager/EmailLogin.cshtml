@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "EmailLogin";
+}
+
+    <table class="table table-bordered">
+        <tr>
+            <td>用户邮箱</td>
+            <td>
+                <input id="txtEmal" type="text" name="UserEmail" />
+            </td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td>邮箱验证码</td>
+            <td><input id="txtYzm" type="text" name="UserPwd" /></td>
+            <td><input id="Button1" type="button" value="发送验证码" onclick="YanZheng()" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input id="bunt1" type="button" value="登录" onclick="Denglu()" /></td>
+            <td></td>
+        </tr>
+    </table>
+    <a href="/UserManager/UserLogin" style="float:right">普通密码登录</a>
+<script>
+    function YanZheng() {
+
+        $.ajax({
+            url: "https://localhost:44341/UserManager/MailEmail?Txt=" + $("#txtEmal").val(),
+            success: function (data) {
+                if (data > 0) {
+                    alert("验证码发送成功");
+                }
+                else {
+                    alert("邮箱不存在");
+
+                }
+            }
+        });
+        }
+    function Denglu()
+    {
+         $.ajax({
+            url: "https://localhost:44341/UserManager/EmailDenglu?yzm="+$("#txtYzm").val(),
+            success: function (data) {
+                if (data > 0)
+                {
+                   
+                    alert("登录成功");
+                    location.assign('../homepage/index');
+                    
+                }
+                else {
+                    alert("登录失败，验证码输入不对");
+
+                }
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "UserLogin";
+}
+
+@using (Html.BeginForm("UserLogin", "UserManager"))
+{
+<table class="table table-bordered">
+    <tr>
+        <td>用户邮箱</td>
+        <td>
+            <input id="txtEmal" type="text" name="UserEmail" />
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>用户密码</td>
+        <td><input id="Text1" type="password" name="UserPwd" /></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input id="Submit1" type="submit" value="登录" class="btn btn-danger">
+        </td>
+        <td>
+            <input  id="Isre" name="Isre" type="checkbox"  @ViewData["checked"] /><span style="font-size: 12px;">记住密码</span>
+        </td>
+    </tr>
+</table> 
+}
+<a href="/UserManager/EmailLogin" style="float:right">动态密码登录</a>
+<script>
+    function check() {
+        var uer = $("#ipt_loginname").val();
+        var pwd = $("#ipt_password").val();
+        var Isre = $("input[type='checkbox']").is(':checked')
+            if (uer == "") {
+                $("#error").html("用户名不能为空！！");
+                return;
+            }
+            if (pwd == "") {
+                $("#error").html("密码不能为空！！");
+                return;
+            }
+         
+            $.ajax({
+                url: "/Login/Check",
+                type: 'POST',
+                dataType: 'text',
+                async:true,
+                data: { name: uer, password: pwd, Isre: Isre, },
+                error :function(strValue){
+                    $("#error").html("请求失败！！");
+                },
+                success: function (strValue) {
+                    if (strValue.trim() == "ok") {
+                        window.location="/Home/Index";
+                    }
+                    else {
+                        $("#error").html("用户名或密码错误！");
+                    }
+                }
+            
+            });
+        };
+</script>
