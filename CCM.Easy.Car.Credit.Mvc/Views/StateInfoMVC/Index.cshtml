@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using System.Data
+@model DataTable
+<h2>Index</h2>
+
+<div class="index-box">
+    <div class="index-nav">
+        <a class="active" href="javascript:void(0);">我的购车方案</a>
+        <a href="https://www.haocheedai.com/pc/authentication/loanProgress.html">贷款办理进度</a>
+        <a href="https://www.haocheedai.com/personalCenter/authentication/repayCheckList.html">还款查询</a>
+        <a href="https://www.haocheedai.com/pc/authentication/userCollection.html">我的收藏</a>
+
+    </div>
+    <h3 class="index-h3">
+        <i class="icon-plan"></i>我的购车方案
+    </h3>
+
+    <div class="box-form-large bindPhoneForm" style="display: none;">
+        <ul class="descr">
+            <li>提供本人有效期内身份证件信息，不得使用或冒用他人信息。</li>
+            <li>身份证信息将被加密保护，绝不外泄。</li>
+        </ul>
+        <form id="bindPhoneForm" class="sui-form form-horizontal" novalidate="novalidate">
+            <div class="remind"></div>
+            <div class="control-group">
+                <label for="mobile" class="control-label">手机号</label>
+                <div class="controls">
+                    <img id="backIconimg" src="https://www.haocheedai.com/resources/pc-sui2/images/iconPhone1.png" alt="">
+                    <input type="text" id="mobilePhone" class="iconHolder" name="mobilePhone" value="157****0279" disabled="true">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="mobile" class="control-label">姓   名</label>
+                <div class="controls">
+                    <img id="backIconimg" src="https://www.haocheedai.com/resources/pc-sui2/images/name.png" alt="">
+                    <input type="text" id="fullName" class="iconHolder" placeholder="请输入姓名" name="fullName">
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="mobile" class="control-label">身份证</label>
+                <div class="controls">
+                    <img id="backIconimg" src="https://www.haocheedai.com/resources/pc-sui2/images/idnumber1.png" alt="">
+                    <input type="text" id="idNumber" class="iconHolder" placeholder="请输入身份证号" name="idNumber">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"></label>
+                <div class="controls">
+                    <button type="submit" class="sui-btn btn-primary">绑定</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="floor-box box-plan">
+        <p class="t-c cRed F18 errorText hidden">购车方案数据为空</p>
+        <div id="uc-carProgramList">
+            <dl class="">
+                <dt>
+                    <span class="updateTime">2019-12-17</span>
+                    <span class="num">编号：<span class="num-id">201912170000060</span></span>
+                    <span class="name"></span>
+                    <a href="javascript:void(0);" class="cancelCarProgram"><i class="sui-icon icon-tb-delete"></i></a>
+                </dt>
+                <dd class="carProgramBlock">
+                    <img class="modelImg" src="//static.haocheedai.com/data/media/brand/25/314/314_210140.jpg" onerror="javascript:this.src='//static.haocheedai.com/data/media/brand/default/default_210140.jpg'" alt="">
+                    <div class="time-body">
+                        <ul class="clearfix detail">
+                            <li class="w320">
+                                <h6 class="brandName-seriesName">大众 POLO</h6>
+                                <p class="fw-bold modelName">2019款 POLO Plus 1.5L 手动全景乐享版</p>
+                                <div class="product carMoney">参考报价 9.99万</div>
+                            </li>
+                            <li class="w210">
+                                <h6>贷款方案</h6>
+                                <p class="fw-bold activityName">5年低利率</p>
+                                <div class="product cityName">购车地:上海市</div>
+                            </li>
+                            <li class="w210">
+                                <h6>参考首付 (<span class="firstPayScale">50%</span>)</h6>
+                                <p>¥&nbsp;<span class="money-red firstPayMoney">5.00</span>万</p>
+                            </li>
+                            <li class="list-monthpay-block">
+                                <h6>参考月供</h6>
+                                <p class="clr-999"><span class="clr-333">¥</span>&nbsp;<span class="money-red monthPay">991.85</span>*<span class="loanTimes">60</span>期</p>
+                            </li>
+                        </ul>
+                        <a class="jump goToApplication" href="https://www.haocheedai.com/pc/authentication/toApplicationCarProgram/371538.html">立即申请</a>
+                        <div class="sui-steps-round cont-steps cont-steps3 hidden">
+                            <div class="finished">
+                                <div class="wrap">
+                                    <div class="round round1"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>审批</label>
+                            </div>
+                            <div class="todo">
+                                <div class="wrap">
+                                    <div class="round round2"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>到店看车</label>
+                            </div>
+                            <div class="todo last">
+                                <div class="wrap">
+                                    <div class="round round4"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>交首付、提车</label>
+                            </div>
+                        </div>
+                        <div class="sui-steps-round cont-steps cont-steps4 hidden">
+                            <div class="finished over">
+                                <div class="wrap">
+                                    <div class="round round1"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>预审</label>
+                            </div>
+                            <div class="todo">
+                                <div class="wrap">
+                                    <div class="round round2"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>到店看车</label>
+                            </div>
+                            <div class="todo">
+                                <div class="wrap">
+                                    <div class="round round3"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>交材料办贷款</label>
+                            </div>
+                            <div class="todo last">
+                                <div class="wrap">
+                                    <div class="round round4"></div>
+                                    <div class="bar"></div>
+                                </div>
+                                <label>交首付、提车</label>
+                            </div>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+        <div class="pagination plan-pagination"><div class="sui-pagination pagination-large"><ul><li class="prev disabled"><a href="#" data="0">«上一页</a></li><li class="active"><a href="#" data="1">1</a></li><li class="next disabled"><a href="#" data="2">下一页»</a></li></ul></div></div>
+    </div>
+</div>
+<div>
+    <div>
+        <table class="table-bordered table">
+            @foreach (DataRow item in (ViewBag.nnn as DataTable).Rows)
+            {
+                <tr>
+                    <td>@item["CarJoinTime"]</td>
+                    <td>@item["CarId"]</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div>
+        <table class="table-bordered table">
+            @foreach (DataRow item in (ViewBag.nnn as DataTable).Rows)
+            {
+            <tr>
+                <td>@item["CarImg"]</td>
+                <td>@item["CarName"]</td>
+                <td>@item["BrandName"]</td>
+                <td>@item["CarPrice"]</td>
+                <td>@item["CityName"]</td>
+            </tr>
+            }
+        </table>
+        <div><input id="Button1" type="button" value="立即申请" onclick="location.href'/Clickapplication/Index'" /></div>
+    </div>
+</div>
+   
